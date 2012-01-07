@@ -116,5 +116,5 @@ end
 
 service "neo4j" do
   supports :start => true, :stop => true, :status => true, :restart => true
-  action [:enable]
+  action [:enable, :start]
 end
