@@ -115,6 +115,6 @@ template "/etc/init.d/neo4j" do
 end
 
 service "neo4j" do
-  supports :status => true, :restart => true
-  action [ :enable ]
+  supports :start => true, :stop => true, :status => true, :restart => true
+  action [:enable]
 end
