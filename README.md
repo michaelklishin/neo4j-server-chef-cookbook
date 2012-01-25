@@ -7,6 +7,12 @@ provides Upstart service script and allows you to tweak many parameters using Ch
 attributes.
 
 
+## Neo4J Server Version
+
+This cookbook currently provides Neo4J Server 1.6 (Community Edition) but can be used
+to install other versions by overriding data bag attributes.
+
+
 ## Recipes
 
 Main recipe is `neo4j-server::tarball`.
