@@ -21,7 +21,7 @@ Main recipe is `neo4j-server::tarball`.
 ## Attributes
 
 All the attributes below are namespaced under `node[:neo4j][:server]`, so `:version` is accessible
-via `node[:neo4j][:server][:version]` and so on.
+via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 
 * `:version`: Neo4J Server version to install (default: 1.6)
 * `:installation_dir`: installation location (default: /usr/local/neo4j-server)
@@ -32,6 +32,7 @@ via `node[:neo4j][:server][:version]` and so on.
 * `:lock_path`: .lock file location (default: /var/run/neo4j-server.lock)
 * `:pid_path`: .pid file location (default: /var/run/neo4j-server.pid)
 * `[:jvm][:xmx]`: maximum allowed JVM heap size, in MB (-Xmx JVM flag value) (default: 512)
+* `[:https][:enabled]`: whether HTTPS transport is enabled (default: true)
 
 
 ## Dependencies
