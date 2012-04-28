@@ -37,7 +37,7 @@ via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 
 ## Dependencies
 
-OpenJDK 6 or Sun JDK 6.
+OpenJDK 6, OpenJDK 7 or Sun JDK 6.
 
 
 ## Copyright & License
