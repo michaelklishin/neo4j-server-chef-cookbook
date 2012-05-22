@@ -96,6 +96,8 @@ end
     owner node.neo4j.server.user
     group node.neo4j.server.user
     to    "#{node.neo4j.server.installation_dir}/bin/#{f}"
+
+    not_if "test -L /usr/local/bin/#{f}"
   end
 end
 
