@@ -32,6 +32,8 @@ via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 * `:lock_path`: .lock file location (default: /var/run/neo4j-server.lock)
 * `:pid_path`: .pid file location (default: /var/run/neo4j-server.pid)
 * `[:jvm][:xmx]`: maximum allowed JVM heap size, in MB (-Xmx JVM flag value) (default: 512)
+* `[:http][:host]`: what HTTP host should HTTP transport listen on (default: 0.0.0.0)
+* `[:http][:port]`: what HTTP host should HTTP transport listen on (default: 7474)
 * `[:https][:enabled]`: whether HTTPS transport is enabled (default: true)
 
 
@@ -42,6 +44,6 @@ Either JDK 7 (OpenJDK 7 or Oracle JDK 7) or JDK 6 (OpenJDK 6 or Sun JDK 6)
 
 ## Copyright & License
 
-Michael S. Klishin, 2012.
+Michael S. Klishin, Alex Petrov, 2012.
 
 Released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).

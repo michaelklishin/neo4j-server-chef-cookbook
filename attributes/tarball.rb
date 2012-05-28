@@ -24,6 +24,7 @@ default[:neo4j][:server] = {
   :lock_path => "/var/run/neo4j-server.lock",
   :pid_path  => "/var/run/neo4j-server.pid",
   :http => {
+    :host     => "0.0.0.0",
     :port     => 7474
   },
   :https => {
