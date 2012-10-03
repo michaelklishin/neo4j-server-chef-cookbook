@@ -36,6 +36,15 @@ via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 * `[:http][:port]`: what HTTP host should HTTP transport listen on (default: 7474)
 * `[:https][:enabled]`: whether HTTPS transport is enabled (default: true)
 
+### Plugins
+
+#### Spatial Plugin
+
+ * `:[plugins][:spatial][:enabled]`: is the Spatial plugin enabled? (default: true)
+ * `:[plugins][:spatial][:url]`: Spatial plugin archive URL
+ * `:[plugins][:spatial][:version]`: Spatial plugin version (default: `0.9-SNAPSHOT`)
+ * `:[plugins][:spatial][:md5]`: Spatial plugin archive MD5 checksum
+
 
 ## Dependencies
 
