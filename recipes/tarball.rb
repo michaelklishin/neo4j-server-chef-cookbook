@@ -22,6 +22,7 @@
 # THE SOFTWARE.
 
 include_recipe "java"
+package 'unzip'
 
 #
 # User accounts
