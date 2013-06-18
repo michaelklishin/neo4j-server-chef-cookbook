@@ -133,6 +133,12 @@ template "#{node.neo4j.server.conf_dir}/neo4j-wrapper.conf" do
   mode  0644
 end
 
+template "#{node.noe4j.server.conf_dir}/neo4j.properties" do
+  source "neo4j.properties.erb"
+  owner node.neo4j.server.user
+  mode 0644
+end
+
 # 6. Know Your Limits
 template "/etc/security/limits.d/#{node.neo4j.server.user}.conf" do
   source "neo4j-limits.conf.erb"
