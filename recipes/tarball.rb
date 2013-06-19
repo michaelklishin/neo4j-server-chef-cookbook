@@ -120,41 +120,7 @@ end
   end
 end
 
-# 5. Install config files
-template "#{node.neo4j.server.conf_dir}/neo4j-server.properties" do
-  source "neo4j-server.properties.erb"
-  owner node.neo4j.server.user
-  mode  0644
-end
-
-template "#{node.neo4j.server.conf_dir}/neo4j-wrapper.conf" do
-  source "neo4j-wrapper.conf.erb"
-  owner node.neo4j.server.user
-  mode  0644
-end
-
-template "#{node.neo4j.server.conf_dir}/neo4j.properties" do
-  source "neo4j.properties.erb"
-  owner node.neo4j.server.user
-  mode 0644
-end
-
-# 6. Know Your Limits
-template "/etc/security/limits.d/#{node.neo4j.server.user}.conf" do
-  source "neo4j-limits.conf.erb"
-  owner node.neo4j.server.user
-  mode  0644
-end
-
-ruby_block "make sure pam_limits.so is required" do
-  block do
-    fe = Chef::Util::FileEdit.new("/etc/pam.d/su")
-    fe.search_file_replace_line(/# session    required   pam_limits.so/, "session    required   pam_limits.so")
-    fe.write_file
-  end
-end
-
-# 6. init.d Service
+# 5. init.d Service
 template "/etc/init.d/neo4j" do
   source "neo4j.init.erb"
   owner 'root'
@@ -163,5 +129,45 @@ end
 
 service "neo4j" do
   supports :start => true, :stop => true, :restart => true
-  action [:enable, :start]
+  action [:enable]
+  subscribes :restart, 'template[/etc/init.d/neo4j]'
+end
+
+# 6. Install config files
+template "#{node.neo4j.server.conf_dir}/neo4j-server.properties" do
+  source "neo4j-server.properties.erb"
+  owner node.neo4j.server.user
+  mode  0644
+  notifies :restart, 'service[neo4j]'
+end
+
+template "#{node.neo4j.server.conf_dir}/neo4j-wrapper.conf" do
+  source "neo4j-wrapper.conf.erb"
+  owner node.neo4j.server.user
+  mode  0644
+  notifies :restart, 'service[neo4j]'
+end
+
+template "#{node.neo4j.server.conf_dir}/neo4j.properties" do
+  source "neo4j.properties.erb"
+  owner node.neo4j.server.user
+  mode 0644
+  notifies :restart, 'service[neo4j]'
+end
+
+# 7. Know Your Limits
+template "/etc/security/limits.d/#{node.neo4j.server.user}.conf" do
+  source "neo4j-limits.conf.erb"
+  owner node.neo4j.server.user
+  mode  0644
+  notifies :restart, 'service[neo4j]'
+end
+
+ruby_block "make sure pam_limits.so is required" do
+  block do
+    fe = Chef::Util::FileEdit.new("/etc/pam.d/su")
+    fe.search_file_replace_line(/# session    required   pam_limits.so/, "session    required   pam_limits.so")
+    fe.write_file
+  end
+  notifies :restart, 'service[neo4j]'
 end
