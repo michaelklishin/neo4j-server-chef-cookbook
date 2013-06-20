@@ -23,6 +23,7 @@
 
 include_recipe "java"
 package 'unzip'
+package 'lsof' # Required to launch the neo4j service
 
 #
 # User accounts
