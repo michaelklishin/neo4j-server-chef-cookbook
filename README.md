@@ -32,8 +32,8 @@ via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 * `:lock_path`: .lock file location (default: /var/run/neo4j-server.lock)
 * `:pid_path`: .pid file location (default: /var/run/neo4j-server.pid)
 * `[:jvm][:xmx]`: maximum allowed JVM heap size, in MB (-Xmx JVM flag value) (default: 512)
-* `[:http][:host]`: what HTTP host should HTTP transport listen on (default: 0.0.0.0)
-* `[:http][:port]`: what HTTP host should HTTP transport listen on (default: 7474)
+* `[:http][:host]`: what interface (or host) should HTTP transport listen on (default: 0.0.0.0)
+* `[:http][:port]`: what port should HTTP transport listen on (default: 7474)
 * `[:https][:enabled]`: whether HTTPS transport is enabled (default: true)
 
 ### Plugins
