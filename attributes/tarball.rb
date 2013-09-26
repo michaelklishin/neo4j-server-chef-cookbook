@@ -1,5 +1,5 @@
 default[:neo4j][:server] = {
-  :version => "1.9.2",
+  :version => "1.9.4",
   :installation_dir => "/usr/local/neo4j-server",
   :tarball => {
     :url => nil, # This can be manually set by the user.
