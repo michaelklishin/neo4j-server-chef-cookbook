@@ -130,7 +130,11 @@ end
 
 service "neo4j" do
   supports :start => true, :stop => true, :restart => true
-  action [:enable]
+  if node.neo4j.server.enabled
+    action :enable
+  else
+    action :disable
+  end
   subscribes :restart, 'template[/etc/init.d/neo4j]'
 end
 
