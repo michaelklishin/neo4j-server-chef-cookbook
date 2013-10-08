@@ -48,10 +48,9 @@ require "tmpdir"
 td          = Dir.tmpdir
 tmp         = File.join(td, "neo4j-community-#{node.neo4j.server.version}.tar.gz")
 tmp_spatial = File.join(td, "neo4j-spatial-#{node.neo4j.server.plugins.spatial.version}-server-plugin.zip")
-tarball_url = "http://dist.neo4j.org/neo4j-community-#{node.neo4j.server.version}-unix.tar.gz"
 
 remote_file(tmp) do
-  source node.neo4j.server.tarball.url || tarball_url
+  source node.neo4j.server.tarball.url
 
   not_if "which neo4j"
 end
