@@ -4,7 +4,7 @@ maintainer_email  'michael@defprotocol.org'
 license           'MIT'
 description       'This cookbook provides Neo4J Server (Community Edition)'
 version           '1.0.0'
-depends           'java', '>= 0.0.1'
+depends           'java'
 
 recipe 'neo4j-server::tarball', 'Installs a Neo4j server'
 
