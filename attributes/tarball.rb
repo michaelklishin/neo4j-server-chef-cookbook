@@ -1,42 +1,33 @@
-default[:neo4j][:server] = {
-  :version => "1.9.4",
-  :installation_dir => "/usr/local/neo4j-server",
-  :tarball => {
-    :url => nil, # This can be manually set by the user.
-  },
-  :user => "neo4j",
-  :jvm  => {
-    :xms => 32,
-    :xmx => 512
-  },
-  :limits => {
-    :memlock => 'unlimited',
-    :nofile  => 48000
-  },
-  # needed only to recursively change permissions. Don't forget to update this
-  # when you change :data_dir location!
-  :lib_dir   => "/var/lib/neo4j-server/",
-  :data_dir  => "/var/lib/neo4j-server/data/graph.db",
-  :conf_dir  => "/usr/local/neo4j-server/conf",
-  :lock_path => "/var/run/neo4j-server.lock",
-  :pid_path  => "/var/run/neo4j-server.pid",
-  :http => {
-    :host     => "0.0.0.0",
-    :port     => 7474
-  },
-  :https => {
-    :enabled => true
-  },
-  :plugins => {
-    :spatial => {
-      :enabled => true,
-      :url => "https://github.com/downloads/goodwink/neo4j-server-chef-cookbook/neo4j-spatial-0.9-SNAPSHOT-server-plugin.zip",
-      :version => "0.9-SNAPSHOT",
-      :md5 => "65e6d30e856f191a20f3f6e78eaaf5a7"
-    }
-  },
-  :node_auto_indexing => {
-    :enabled => false,
-    :keys_indexable => ''
-  }
-}
+default[:neo4j][:server][:version]           = '1.9.4'
+
+default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-community-#{node[:neo4j][:server][:version]}-unix.tar.gz"
+
+default[:neo4j][:server][:jvm][:xms]         =  32
+default[:neo4j][:server][:jvm][:xmx]         = 512
+default[:neo4j][:server][:limits][:memlock]  = 'unlimited'
+default[:neo4j][:server][:limits][:nofile]   = 48000
+
+default[:neo4j][:server][:user]              = 'neo4j'
+
+default[:neo4j][:server][:name]              = 'neo4j-server'
+
+default[:neo4j][:server][:installation_dir]  = "/usr/local/#{node[:neo4j][:server][:name]}"
+default[:neo4j][:server][:run_dir]           = '/var/run'
+default[:neo4j][:server][:lib_dir]           = "/var/lib/#{node[:neo4j][:server][:name]}"
+default[:neo4j][:server][:data_dir]          = "#{node[:neo4j][:server][:lib_dir]}/data/graph.db"
+default[:neo4j][:server][:conf_dir]          = "#{node[:neo4j][:server][:installation_dir]}/conf"
+default[:neo4j][:server][:lock_path]         = "#{node[:neo4j][:server][:run_dir]}/#{node[:neo4j][:server][:name]}.lock"
+default[:neo4j][:server][:pid_path]          = "#{node[:neo4j][:server][:run_dir]}/#{node[:neo4j][:server][:name]}.pid"
+
+default[:neo4j][:server][:enabled]           = true
+
+default[:neo4j][:server][:http][:host]       = '0.0.0.0'
+default[:neo4j][:server][:http][:port]       = 7474
+default[:neo4j][:server][:https][:enabled]   = true
+
+default[:neo4j][:server][:plugins][:spatial][:enabled]  = true
+default[:neo4j][:server][:plugins][:spatial][:version]  = '0.9-SNAPSHOT'
+default[:neo4j][:server][:plugins][:spatial][:url]      = "https://github.com/downloads/goodwink/neo4j-server-chef-cookbook/neo4j-spatial-#{node[:neo4j][:server][:plugins][:spatial][:version]}-server-plugin.zip"
+
+default[:neo4j][:server][:node_auto_indexing][:enabled]         = false
+default[:neo4j][:server][:node_auto_indexing][:keys_indexable]  = ''
