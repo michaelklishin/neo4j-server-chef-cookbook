@@ -35,13 +35,13 @@ org.neo4j.server.webserver.port=<%= node.neo4j.server.http.port %>
 org.neo4j.server.webserver.https.enabled=<%= node.neo4j.server.https.enabled %>
 
 # https port (for all data, administrative, and UI access)
-org.neo4j.server.webserver.https.port=7473
+org.neo4j.server.webserver.https.port=<%= node.neo4j.server.https.port %>
 
 # Certificate location (auto generated if the file does not exist)
-org.neo4j.server.webserver.https.cert.location=conf/ssl/snakeoil.cert
+org.neo4j.server.webserver.https.cert.location=<%= node.neo4j.server.https.cert_location %>
 
 # Private key location (auto generated if the file does not exist)
-org.neo4j.server.webserver.https.key.location=conf/ssl/snakeoil.key
+org.neo4j.server.webserver.https.key.location=<%= node.neo4j.server.https.key_location %>
 
 # Internally generated keystore (don't try to put your own
 # keystore there, it will get deleted when the server starts)

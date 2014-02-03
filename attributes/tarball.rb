@@ -25,7 +25,11 @@ default[:neo4j][:server][:http][:host]       = '0.0.0.0'
 
 default[:neo4j][:server][:http][:enabled]    = true
 default[:neo4j][:server][:http][:port]       = 7474
-default[:neo4j][:server][:https][:enabled]   = true
+
+default[:neo4j][:server][:https][:enabled]        = true
+default[:neo4j][:server][:https][:port]           = 7473
+default[:neo4j][:server][:https][:cert_location]  = 'conf/ssl/snakeoil.cert'
+default[:neo4j][:server][:https][:key_location]   = 'conf/ssl/snakeoil.key'
 
 default[:neo4j][:server][:plugins][:spatial][:enabled]  = true
 default[:neo4j][:server][:plugins][:spatial][:version]  = '0.9-SNAPSHOT'
