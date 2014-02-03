@@ -22,6 +22,8 @@ default[:neo4j][:server][:pid_path]          = "#{node[:neo4j][:server][:run_dir
 default[:neo4j][:server][:enabled]           = true
 
 default[:neo4j][:server][:http][:host]       = '0.0.0.0'
+
+default[:neo4j][:server][:http][:enabled]    = true
 default[:neo4j][:server][:http][:port]       = 7474
 default[:neo4j][:server][:https][:enabled]   = true
 

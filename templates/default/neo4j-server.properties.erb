@@ -22,7 +22,7 @@ org.neo4j.server.webserver.address=<%= node.neo4j.server.http.host %>
 
 # Turn http-support on/off, mostly if you want your
 # server accessible via https only.
-org.neo4j.server.webserver.http.enabled=true
+org.neo4j.server.webserver.http.enabled=<%= node.neo4j.server.http.enabled %>
 
 # http port (for all data, administrative, and UI access)
 org.neo4j.server.webserver.port=<%= node.neo4j.server.http.port %>
