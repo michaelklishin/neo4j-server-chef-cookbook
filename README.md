@@ -35,6 +35,7 @@ via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 * `[:http][:host]`: what interface (or host) should HTTP transport listen on (default: 0.0.0.0)
 * `[:http][:port]`: what port should HTTP transport listen on (default: 7474)
 * `[:https][:enabled]`: whether HTTPS transport is enabled (default: true)
+* `[:remote_shell][:port]`: remote_shell_port (default: 1337)
 
 ### Plugins
 
