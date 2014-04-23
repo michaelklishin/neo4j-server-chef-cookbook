@@ -1,4 +1,4 @@
-default[:neo4j][:server][:version]           = '1.9.4'
+default[:neo4j][:server][:version]           = '2.0.2'
 
 default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-community-#{node[:neo4j][:server][:version]}-unix.tar.gz"
 
