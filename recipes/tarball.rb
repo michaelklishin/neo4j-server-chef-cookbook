@@ -89,7 +89,7 @@ if node.neo4j.server.plugins.spatial.enabled
   end
 end
 
-[node.neo4j.server.conf_dir, node.neo4j.server.data_dir, File.join(node.neo4j.server.data_dir, "log")].each do |dir|
+[node.neo4j.server.conf_dir, node.neo4j.server.data_dir, node.neo4j.server.lib_dir, File.join(node.neo4j.server.data_dir, "log")].each do |dir|
   directory dir do
     owner     node.neo4j.server.user
     group     node.neo4j.server.user
