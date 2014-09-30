@@ -23,7 +23,7 @@ Main recipe is `neo4j-server::tarball`.
 All the attributes below are namespaced under `node[:neo4j][:server]`, so `:version` is accessible
 via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 
-* `:version`: Neo4J Server version to install (default: `"2.1.4"`)
+* `:version`: Neo4J Server version to install (default: a recent `2.1.x` release)
 * `:installation_dir`: installation location (default: /usr/local/neo4j-server)
 * `:user`: OS user Neo4J Server will be using (default: neo4j)
 * `:lib_dir`: Neo4J libraries location (default: /var/lib/neo4j-server/)
