@@ -54,6 +54,6 @@ Either JDK 7 (OpenJDK 7 or Oracle JDK 7). Neo4J Server 1.9+ requires JDK 7.
 
 ## Copyright & License
 
-Michael S. Klishin, Alex Petrov, 2012-2013.
+Michael S. Klishin, Alex Petrov, 2012-2015.
 
 Released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
