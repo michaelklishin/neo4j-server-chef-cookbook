@@ -1,6 +1,6 @@
 # Neo4J Server Chef Cookbook
 
-This is an OpsCode Chef cookbook for Neo4J Server Community Edition.
+This is an OpsCode Chef cookbook for Neo4J Server (Community or Enterprise edition).
 
 It uses officially released tarballs to install Neo4J under /usr/local/neo4j-server,
 provides Upstart service script and allows you to tweak many parameters using Chef node
@@ -9,7 +9,7 @@ attributes.
 
 ## Neo4J Server Version
 
-This cookbook currently provides Neo4J Server 2.1 (Community Edition) but can be used
+This cookbook currently provides Neo4J Server 2.2 (Community Edition by default, Enterprise if you opt in) but can be used
 to install other versions by overriding data bag attributes.
 
 
