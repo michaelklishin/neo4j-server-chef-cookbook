@@ -37,6 +37,12 @@ via `node[:neo4j][:server][:version]` or `node.neo4j.server.version` and so on.
 * `[:https][:enabled]`: whether HTTPS transport is enabled (default: true)
 * `[:remote_shell][:port]`: remote_shell_port (default: 1337)
 
+## Enterprise Attributes
+* `:edition`: Set to `:enterprise` in order to use enterprise distribution and options (default: :community)
+* `[:ha][:enabled]`: Set to true to enable high availability (default: false)
+* `[:ha][:server_id]`: The server_id used for HA setup (default: 1)
+* `[:ha][:initial_hosts]`: A comma separated list of other host:port pairs in the cluster (default: nil)
+
 ### Plugins
 
 #### Spatial Plugin

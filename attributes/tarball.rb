@@ -1,6 +1,6 @@
-default[:neo4j][:server][:version]           = '2.1.7'
-
-default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-community-#{node[:neo4j][:server][:version]}-unix.tar.gz"
+default[:neo4j][:server][:version]           = '2.2.1'
+default[:neo4j][:server][:edition]           = 'community'
+default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-#{node[:neo4j][:server][:edition]}-#{node[:neo4j][:server][:version]}-unix.tar.gz"
 
 default[:neo4j][:server][:jvm][:xms]         =  32
 default[:neo4j][:server][:jvm][:xmx]         = 512
@@ -39,3 +39,9 @@ default[:neo4j][:server][:node_auto_indexing][:enabled]         = false
 default[:neo4j][:server][:node_auto_indexing][:keys_indexable]  = ''
 
 default[:neo4j][:server][:remote_shell][:port] = 1337
+
+# Enterprise attributes
+default[:neo4j][:server][:ha][:enabled] = false
+default[:neo4j][:server][:ha][:server_id] = "1"
+default[:neo4j][:server][:ha][:initial_hosts] = nil
+
