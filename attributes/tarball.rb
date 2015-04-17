@@ -1,6 +1,6 @@
-default[:neo4j][:server][:version]           = '2.1.7'
-
-default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-community-#{node[:neo4j][:server][:version]}-unix.tar.gz"
+default[:neo4j][:server][:version]           = '2.2.1'
+default[:neo4j][:server][:edition]           = 'community'
+default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-#{node[:neo4j][:server][:edition]}-#{node[:neo4j][:server][:version]}-unix.tar.gz"
 
 default[:neo4j][:server][:jvm][:xms]         =  32
 default[:neo4j][:server][:jvm][:xmx]         = 512
