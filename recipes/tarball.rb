@@ -46,7 +46,7 @@ end
 require "tmpdir"
 
 td          = Dir.tmpdir
-tmp         = File.join(td, "neo4j-community-#{node.neo4j.server.version}.tar.gz")
+tmp         = File.join(td, "neo4j-#{node.neo4j.server.edition}-#{node.neo4j.server.version}.tar.gz")
 tmp_spatial = File.join(td, "neo4j-spatial-#{node.neo4j.server.plugins.spatial.version}-server-plugin.zip")
 
 remote_file(tmp) do
