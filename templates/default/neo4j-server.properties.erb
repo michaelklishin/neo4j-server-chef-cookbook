@@ -75,6 +75,6 @@ org.neo4j.server.db.tuning.properties=<%= node.neo4j.server.conf_dir %>/neo4j.pr
 #org.neo4j.server.thirdparty_jaxrs_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged
 
 # Turn on HA mode if initial_hosts is given 
-<% if node.neo4j.server.edition == 'enterprise' && node.neo4j.server.initial_hosts %>
+<% if node.neo4j.server.ha.enabled %>
 org.neo4j.server.database.mode=HA
 <% end %>

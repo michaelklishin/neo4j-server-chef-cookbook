@@ -39,3 +39,9 @@ default[:neo4j][:server][:node_auto_indexing][:enabled]         = false
 default[:neo4j][:server][:node_auto_indexing][:keys_indexable]  = ''
 
 default[:neo4j][:server][:remote_shell][:port] = 1337
+
+# Enterprise attributes
+default[:neo4j][:server][:ha][:enabled] = false
+default[:neo4j][:server][:ha][:server_id] = "1"
+default[:neo4j][:server][:ha][:initial_hosts] = nil
+
