@@ -1,9 +1,9 @@
 name              "neo4j-server"
 maintainer        'Michael Klishin'
-maintainer_email  'michael@defprotocol.org'
+maintainer_email  'michael@clojurewerkz.org'
 license           'MIT'
-description       'This cookbook provides Neo4J Server (Community Edition)'
-version           '1.0.1'
+description       'This cookbook provides Neo4J Server (Community and Enterprise editions)'
+version           '1.1.0'
 depends           'java'
 
 recipe 'neo4j-server::tarball', 'Installs a Neo4j server'
