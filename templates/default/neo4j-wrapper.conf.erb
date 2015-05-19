@@ -1,22 +1,68 @@
 #********************************************************************
-# JVM Parameters
+# Property file references
 #********************************************************************
- 
+
 wrapper.java.additional.1=-Dorg.neo4j.server.properties=<%= node.neo4j.server.conf_dir %>/neo4j-server.properties
 wrapper.java.additional.2=-Djava.util.logging.config.file=<%= node.neo4j.server.conf_dir %>/logging.properties
+wrapper.java.additional=-Dlog4j.configuration=file:conf/log4j.properties
 
-# Initial Java Heap Size (in MB)
+#********************************************************************
+# JVM Parameters
+#********************************************************************
+
+wrapper.java.additional=-XX:+UseConcMarkSweepGC
+wrapper.java.additional=-XX:+CMSClassUnloadingEnabled
+wrapper.java.additional=-XX:-OmitStackTraceInFastThrow
+wrapper.java.additional=-XX:hashCode=5
+
+# Remote JMX monitoring, uncomment and adjust the following lines as needed.
+# Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords,
+# the shipped configuration contains only a read only role called 'monitor' with password 'Neo4j'.
+# For more details, see: http://download.oracle.com/javase/7/docs/technotes/guides/management/agent.html
+# On Unix based systems the jmx.password file needs to be owned by the user that will run the server,
+# and have permissions set to 0600.
+# For details on setting these file permissions on Windows see:
+#     http://docs.oracle.com/javase/7/docs/technotes/guides/management/security-windows.html
+wrapper.java.additional=-Dcom.sun.management.jmxremote.port=3637
+wrapper.java.additional=-Dcom.sun.management.jmxremote.authenticate=false
+#wrapper.java.additional=-Dcom.sun.management.jmxremote.ssl=false
+#wrapper.java.additional=-Dcom.sun.management.jmxremote.password.file=conf/jmx.password
+#wrapper.java.additional=-Dcom.sun.management.jmxremote.access.file=conf/jmx.access
+
+# Some systems cannot discover host name automatically, and need this line configured:
+#wrapper.java.additional=-Djava.rmi.server.hostname=$THE_NEO4J_SERVER_HOSTNAME
+
+# Uncomment the following lines to enable garbage collection logging
+#wrapper.java.additional=-Xloggc:data/log/neo4j-gc.log
+#wrapper.java.additional=-XX:+PrintGCDetails
+#wrapper.java.additional=-XX:+PrintGCDateStamps
+#wrapper.java.additional=-XX:+PrintGCApplicationStoppedTime
+#wrapper.java.additional=-XX:+PrintPromotionFailure
+#wrapper.java.additional=-XX:+PrintTenuringDistribution
+
+# Java Heap Size: by default the Java heap size is dynamically
+# calculated based on available system resources.
+# Uncomment these lines to set specific initial and maximum
+# heap size in MB.
+#wrapper.java.initmemory=512
+#wrapper.java.maxmemory=512
 wrapper.java.initmemory=<%= node.neo4j.server.jvm.xms %>
-
-# Maximum Java Heap Size (in MB)
 wrapper.java.maxmemory=<%= node.neo4j.server.jvm.xmx %>
 
 #********************************************************************
 # Wrapper settings
 #********************************************************************
-# Override default pidfile and lockfile 
+# path is relative to the bin dir
 wrapper.pidfile=<%= node.neo4j.server.pid_path %>
 wrapper.lockfile=<%= node.neo4j.server.lock_path %>
+
+#********************************************************************
+# Wrapper Windows NT/2000/XP Service Properties
+#********************************************************************
+# WARNING - Do not modify any of these properties when an application
+#  using this configuration file has been installed as a service.
+#  Please uninstall the service before modifying this section.  The
+#  service can then be reinstalled.
 
 # Name of the service
 wrapper.name=neo4j
@@ -24,3 +70,8 @@ wrapper.name=neo4j
 # User account to be used for linux installs. Will default to current
 # user if not set.
 wrapper.user=<%= node.neo4j.server.user %>
+
+#********************************************************************
+# Other Neo4j system properties
+#********************************************************************
+wrapper.java.additional=-Dneo4j.ext.udc.source=tarball
