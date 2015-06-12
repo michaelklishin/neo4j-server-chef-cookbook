@@ -10,7 +10,7 @@
 #***************************************************************
 
 # location of the database directory
-org.neo4j.server.database.location=<%= node.neo4j.server.data_dir %>
+org.neo4j.server.database.location=<%= node.neo4j.server.data_dir %>/graph.db
 
 # Low-level graph engine tuning file
 org.neo4j.server.db.tuning.properties=<%= node.neo4j.server.conf_dir %>/neo4j.properties
@@ -57,7 +57,7 @@ org.neo4j.server.webserver.https.key.location=<%= node.neo4j.server.https.key_lo
 
 # Internally generated keystore (don't try to put your own
 # keystore there, it will get deleted when the server starts)
-org.neo4j.server.webserver.https.keystore.location=data/keystore
+org.neo4j.server.webserver.https.keystore.location=<%= node.neo4j.server.data_dir %>/keystore
 
 # Comma separated list of JAX-RS packages containing JAX-RS resources, one
 # package name for each mountpoint. The listed package names will be loaded
@@ -90,4 +90,4 @@ org.neo4j.server.http.log.config=conf/neo4j-http-logging.xml
 # - absolute path like /var/rrd
 # - path relative to the server working directory like data/rrd
 # - commented out, will default to the database data directory.
-org.neo4j.server.webadmin.rrdb.location=data/rrd
+org.neo4j.server.webadmin.rrdb.location=<%= node.neo4j.server.data_dir %>/rrd
