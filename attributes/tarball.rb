@@ -44,5 +44,9 @@ default[:neo4j][:server][:remote_shell][:port] = 1337
 default[:neo4j][:server][:ha][:enabled] = false
 default[:neo4j][:server][:ha][:server_id] = "1"
 default[:neo4j][:server][:ha][:initial_hosts] = nil
+default[:neo4j][:server][:ha][:server] = nil
+default[:neo4j][:server][:ha][:cluster_server] = nil
 default[:neo4j][:server][:ha][:pull_interval] = 10
+default[:neo4j][:server][:ha][:tx_push_factor] = nil
+default[:neo4j][:server][:ha][:tx_push_strategy] = nil
 
