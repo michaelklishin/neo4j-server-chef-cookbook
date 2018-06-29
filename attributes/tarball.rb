@@ -9,6 +9,8 @@ default[:neo4j][:server][:limits][:nofile]   = 48000
 
 default[:neo4j][:server][:user]              = 'neo4j'
 
+default[:neo4j][:server][:uid]               = nil
+
 default[:neo4j][:server][:name]              = 'neo4j-server'
 
 default[:neo4j][:server][:installation_dir]  = "/usr/local/#{node[:neo4j][:server][:name]}"

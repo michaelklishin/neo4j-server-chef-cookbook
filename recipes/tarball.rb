@@ -32,6 +32,7 @@ package 'lsof' # Required to launch the neo4j service
 user node.neo4j.server.user do
   comment "Neo4J Server user"
   home    node.neo4j.server.installation_dir
+  uid     node.neo4j.server.uid
   shell   "/bin/bash"
   action  :create
 end
